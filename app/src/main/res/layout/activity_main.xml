@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="240dp"
         android:background="@drawable/rounded_corner"
         android:singleLine="true"
         android:text="71+3"
@@ -31,10 +31,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:rowCount="4"
+        android:layout_marginEnd="4dp"
+        android:rowCount="5"
         android:columnCount="4">
 
+        <!-- BUTTON AC -->
         <Button
             android:id="@+id/buttonAC"
             android:layout_width="90dp"
@@ -44,9 +45,9 @@
             android:text="AC"
             android:layout_marginEnd="5dp"
             android:textColor="#fbd7fa"
-            android:textSize="40sp"/>
+            android:textSize="35sp"/>
 
-        <!-- BUTTON 2 -->
+        <!-- BUTTON () -->
         <Button
             android:id="@+id/buttonbrack"
             android:layout_width="90dp"
@@ -58,9 +59,9 @@
             android:textColor="#dde2fb"
             android:textSize="40sp" />
 
-        <!-- BUTTON 3 -->
+        <!-- BUTTON % -->
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonperc"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_rowWeight="1"
@@ -71,9 +72,9 @@
             android:textSize="40sp"
             />
 
-        <!-- BUTTON 4 -->
+        <!-- BUTTON / -->
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonslash"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_rowWeight="1"
@@ -81,6 +82,198 @@
             android:text="\u00F7"
             android:textColor="#dde2fb"
             android:textSize="40sp" />
+
+        <!-- BUTTON 7 -->
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="7"
+            android:textColor="#c4c7d0"
+            android:textSize="40sp" />
+
+        <!-- BUTTON 8 -->
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="8"
+            android:textColor="#c4c7d0"
+            android:textSize="40sp" />
+
+        <!-- BUTTON 9 -->
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="9"
+            android:textColor="#c4c7d0"
+            android:textSize="40sp" />
+
+        <!-- BUTTON X -->
+        <Button
+            android:id="@+id/buttonX"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="\u2715"
+            android:textColor="#dde2fb"
+            android:textSize="35sp" />
+
+        <!-- BUTTON 4 -->
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="4"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON 5 -->
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="5"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON 6 -->
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="6"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON - -->
+        <Button
+            android:id="@+id/buttonsub"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="-"
+            android:textColor="#dde2fb"
+            android:textSize="60sp" />
+
+        <!-- BUTTON 1 -->
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="1"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON 2 -->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="2"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON 3 -->
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="3"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON + -->
+        <Button
+            android:id="@+id/buttonplus"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="\u002b"
+            android:textColor="#dde2fb"
+            android:textSize="45sp" />
+
+        <!-- BUTTON 0 -->
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="0"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON . -->
+        <Button
+            android:id="@+id/button."
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="."
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON del -->
+        <Button
+            android:id="@+id/buttondel"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_buttons"
+            android:text="\u232b"
+            android:textColor="#c4c7d0"
+            android:textSize="35sp" />
+
+        <!-- BUTTON = -->
+        <Button
+            android:id="@+id/buttoneq"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="="
+            android:textColor="#dde2fb"
+            android:textSize="45sp" />
     </GridLayout>
 
 
