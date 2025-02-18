@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +11,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="257dp"
+        android:layout_height="220dp"
         android:background="@drawable/rounded_corner"
         android:singleLine="true"
         android:text="71+3"
@@ -20,71 +19,69 @@
         android:textSize="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/button1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- BUTTON 1 -->
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_buttons"
-        android:text="1"
-        android:textColor="#C4C7D0"
-        android:textSize="70dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintBottom_toBottomOf="@+id/button2" />
-
-    <!-- BUTTON 2 -->
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_buttons"
-        android:text="2"
-        android:textColor="#C4C7D0"
-        android:textSize="70dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintBottom_toBottomOf="@+id/button3" />
-
-    <!-- BUTTON 3 -->
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_buttons"
-        android:text="3"
-        android:textColor="#C4C7D0"
-        android:textSize="70dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintBottom_toBottomOf="@+id/button2" />
-
-    <!-- BUTTON 4 -->
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:background="@drawable/round_buttons"
-        android:text="4"
-        android:textColor="#C4C7D0"
-        android:textSize="70dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+    <!-- ROW 1 -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintBottom_toBottomOf="@+id/button2" />
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:rowCount="4"
+        android:columnCount="4">
+
+        <Button
+            android:id="@+id/buttonAC"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_ac"
+            android:text="AC"
+            android:layout_marginEnd="5dp"
+            android:textColor="#fbd7fa"
+            android:textSize="40sp"/>
+
+        <!-- BUTTON 2 -->
+        <Button
+            android:id="@+id/buttonbrack"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="( )"
+            android:layout_marginEnd="5dp"
+            android:textColor="#dde2fb"
+            android:textSize="40sp" />
+
+        <!-- BUTTON 3 -->
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="%"
+            android:textColor="#dde2fb"
+            android:layout_marginEnd="5dp"
+            android:textSize="40sp"
+            />
+
+        <!-- BUTTON 4 -->
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/round_special"
+            android:text="\u00F7"
+            android:textColor="#dde2fb"
+            android:textSize="40sp" />
+    </GridLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
