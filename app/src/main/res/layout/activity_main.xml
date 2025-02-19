@@ -17,7 +17,7 @@
         android:textIsSelectable="true"
         android:gravity="center|end"
         android:paddingEnd="20dp"
-        android:text="5"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="80dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +59,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_special"
             android:text="( )"
+            android:onClick="bracket"
             android:layout_marginEnd="5dp"
             android:textColor="#dde2fb"
             android:textSize="40sp" />
@@ -278,6 +279,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="\u232b"
+            android:onClick="backspace"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 

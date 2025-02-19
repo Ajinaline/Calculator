@@ -34,22 +34,66 @@ class MainActivity : ComponentActivity() {
         updateDisplay()
     }
 
-    fun multiply(){
+    fun multiply(sign: View){
         equation.append("x")
         updateDisplay()
     }
 
-    fun divide(){
+    fun divide(sign: View){
         equation.append("/")
         updateDisplay()
     }
 
-    fun del(){
+    fun del(sign: View){
         equation.clear()
         updateDisplay()
     }
 
+    fun backspace(sign: View){
+        equation.delete((equation.length-1), equation.length)
+        updateDisplay()
+    }
+
     fun bracket(sign: View){
+        if (equation.substring(0) == ""){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "/"){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "X"){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "-"){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "+"){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "%"){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else if (equation.substring(equation.length - 1) == "("){
+            equation.append("(")
+            updateDisplay()
+        }
+
+        else{
+            equation.append(")")
+            updateDisplay()
+        }
 
     }
 
@@ -58,6 +102,7 @@ class MainActivity : ComponentActivity() {
         var displayText = findViewById<TextView>(R.id.textView1)
         displayText.text = equation.toString()
     }
+
 }
 
 
