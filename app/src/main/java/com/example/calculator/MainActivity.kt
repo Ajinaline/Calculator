@@ -2,6 +2,7 @@ package com.example.calculator
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -23,6 +24,39 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+    }
+
+    var equation = StringBuilder()
+
+    fun typing(num: View){
+        val button = num as Button
+        equation.append(button.text)
+        updateDisplay()
+    }
+
+    fun multiply(){
+        equation.append("x")
+        updateDisplay()
+    }
+
+    fun divide(){
+        equation.append("/")
+        updateDisplay()
+    }
+
+    fun del(){
+        equation.clear()
+        updateDisplay()
+    }
+
+    fun bracket(sign: View){
+
+    }
+
+
+    fun updateDisplay(){
+        var displayText = findViewById<TextView>(R.id.textView1)
+        displayText.text = equation.toString()
     }
 }
 

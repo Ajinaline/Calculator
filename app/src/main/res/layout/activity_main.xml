@@ -9,7 +9,7 @@
 
     <!-- TEXTVIEW -->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/rounded_corner"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="4dp"
@@ -46,6 +46,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_ac"
             android:text="AC"
+            android:onClick="del"
             android:layout_marginEnd="5dp"
             android:textColor="#fbd7fa"
             android:textSize="35sp"/>
@@ -83,6 +84,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_special"
             android:text="\u00F7"
+            android:onClick="divide"
             android:textColor="#dde2fb"
             android:textSize="40sp" />
 
@@ -95,6 +97,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="7"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="40sp" />
 
@@ -107,6 +110,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="8"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="40sp" />
 
@@ -119,6 +123,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="9"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="40sp" />
 
@@ -131,6 +136,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_special"
             android:text="\u2715"
+            android:onClick="multiply"
             android:textColor="#dde2fb"
             android:textSize="35sp" />
 
@@ -143,6 +149,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="4"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -155,6 +162,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="5"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -167,6 +175,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="6"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -179,6 +188,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_special"
             android:text="-"
+            android:onClick="typing"
             android:textColor="#dde2fb"
             android:textSize="60sp" />
 
@@ -191,6 +201,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="1"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -203,6 +214,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="2"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -215,6 +227,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="3"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -239,6 +252,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="0"
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
@@ -251,6 +265,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_buttons"
             android:text="."
+            android:onClick="typing"
             android:textColor="#c4c7d0"
             android:textSize="35sp" />
 
