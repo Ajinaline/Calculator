@@ -186,7 +186,7 @@ class MainActivity : ComponentActivity() {
         val arithmetic = equation.toString().replace("x", "*")
 
         try {
-            val result = eval(equation.toString()) // Write an `eval` function to evaluate
+            val result = eval(arithmetic) // Write an `eval` function to evaluate
             equation.clear().append(result)
             updateDisplay()
         } catch (e: Exception) {
