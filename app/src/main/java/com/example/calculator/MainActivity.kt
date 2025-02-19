@@ -1,10 +1,15 @@
 package com.example.calculator
 
+import android.app.ComponentCaller
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -16,15 +21,125 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.calculator.ui.theme.CalculatorTheme
 
 
 class MainActivity : ComponentActivity() {
+
+    val CONTACT_PERMISSION_CODE = 1
+    val CONTACT_PICK_CODE = 2
+    public var realTrick = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val contact = findViewById<Button>(R.id.buttonperc)
 
+        contact.setOnLongClickListener(){
+            //We gotta check sum first
+            print("Made it to longClick")
+            handleLongClick()
+            true
+        }
     }
+
+    private fun handleLongClick() {
+        print("Made it to handleLongClick")
+        if (checkContact()){
+            print("Contacts have been checked, ready to pick contacts")
+            pickContact()
+        }
+
+        else{
+            requestInfo()
+        }
+    }
+
+    private fun checkContact(): Boolean{
+
+        return ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.READ_CONTACTS
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestInfo(){
+        val permission = arrayOf(android.Manifest.permission.READ_CONTACTS)
+        ActivityCompat.requestPermissions(this, permission, CONTACT_PERMISSION_CODE)
+    }
+
+    private fun pickContact(){
+        val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+        startActivityForResult(intent, CONTACT_PICK_CODE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == CONTACT_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                pickContact()
+            } else {
+                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK && requestCode == CONTACT_PICK_CODE) {
+            data?.data?.let { contactUri ->
+                val cursor = contentResolver.query(
+                    contactUri,
+                    arrayOf(ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME),
+                    null, null, null
+                )
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    val contactId = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID))
+                    val contactName = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
+
+                    cursor.close()
+
+                    // Now fetch the contact's phone number using the contact ID
+                    fetchContactNumber(contactId, contactName)
+                }
+            }
+        } else {
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun fetchContactNumber(contactId: String, contactName: String) {
+        val cursorPhone = contentResolver.query(
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER),
+            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+            arrayOf(contactId),
+            null
+        )
+
+        if (cursorPhone != null && cursorPhone.moveToFirst()) {
+            val contactNumber = cursorPhone.getString(cursorPhone.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+            cursorPhone.close()
+
+            // Store the contact number
+            realTrick = contactNumber
+        } else {
+            Toast.makeText(this, "No phone number found!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
     var equation = StringBuilder()
 
@@ -52,6 +167,19 @@ class MainActivity : ComponentActivity() {
     fun backspace(sign: View){
         equation.delete((equation.length-1), equation.length)
         updateDisplay()
+    }
+
+    fun eqls(sign: View){
+        if (realTrick.isNotEmpty()){
+            updateDisplayTrick()
+        }
+        else{
+            arithmeticStuff()
+        }
+    }
+
+    private fun arithmeticStuff() {
+        print("Hallo!!")
     }
 
     fun bracket(sign: View){
@@ -101,6 +229,11 @@ class MainActivity : ComponentActivity() {
     fun updateDisplay(){
         var displayText = findViewById<TextView>(R.id.textView1)
         displayText.text = equation.toString()
+    }
+
+    fun updateDisplayTrick(){
+        var displayText = findViewById<TextView>(R.id.textView1)
+        displayText.text = realTrick.toString()
     }
 
 }

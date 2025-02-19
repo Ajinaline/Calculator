@@ -74,6 +74,8 @@
             android:text="%"
             android:textColor="#dde2fb"
             android:layout_marginEnd="5dp"
+            android:longClickable="true"
+
             android:textSize="40sp"
             />
 
