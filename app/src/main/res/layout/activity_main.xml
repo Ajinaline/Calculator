@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="250dp"
         android:background="@drawable/rounded_corner"
         android:singleLine="true"
         android:text="71+3"
@@ -270,9 +270,9 @@
             android:layout_height="90dp"
             android:layout_marginTop="5dp"
             android:layout_rowWeight="1"
-            android:background="@drawable/round_special"
+            android:background="@drawable/round_eqs"
             android:text="="
-            android:textColor="#dde2fb"
+            android:textColor="#d6e2fd"
             android:textSize="45sp" />
     </GridLayout>
 
