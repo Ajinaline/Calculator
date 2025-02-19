@@ -7,19 +7,29 @@
     android:layout_height="match_parent"
     android:background="#121317">
 
+
     <!-- TEXTVIEW -->
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/rounded_corner"
-        android:singleLine="true"
         android:textIsSelectable="true"
         android:gravity="center|end"
         android:paddingEnd="20dp"
+
         android:text=""
         android:textColor="@color/white"
-        android:textSize="80dp"
+        android:maxLines="1"
+        android:textSize="80sp"
+        android:ellipsize="none"
+
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="14sp"
+        android:autoSizeMaxTextSize="80sp"
+        android:autoSizeStepGranularity="2sp"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +85,6 @@
             android:textColor="#dde2fb"
             android:layout_marginEnd="5dp"
             android:longClickable="true"
-
             android:textSize="40sp"
             />
 
@@ -243,6 +252,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_special"
             android:text="\u002b"
+            android:onClick="add"
             android:textColor="#dde2fb"
             android:textSize="45sp" />
 
@@ -294,6 +304,7 @@
             android:layout_rowWeight="1"
             android:background="@drawable/round_eqs"
             android:text="="
+            android:onClick="eqls"
             android:textColor="#d6e2fd"
             android:textSize="45sp" />
     </GridLayout>

@@ -1,5 +1,6 @@
 package com.example.calculator
 
+import android.Manifest
 import android.app.ComponentCaller
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -23,6 +24,7 @@ import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import net.objecthunter.exp4j.ExpressionBuilder
 import com.example.calculator.ui.theme.CalculatorTheme
 
 
@@ -61,12 +63,12 @@ class MainActivity : ComponentActivity() {
 
         return ContextCompat.checkSelfPermission(
             this,
-            android.Manifest.permission.READ_CONTACTS
+            Manifest.permission.READ_CONTACTS
         ) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestInfo(){
-        val permission = arrayOf(android.Manifest.permission.READ_CONTACTS)
+        val permission = arrayOf(Manifest.permission.READ_CONTACTS)
         ActivityCompat.requestPermissions(this, permission, CONTACT_PERMISSION_CODE)
     }
 
@@ -75,11 +77,7 @@ class MainActivity : ComponentActivity() {
         startActivityForResult(intent, CONTACT_PICK_CODE)
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode == CONTACT_PERMISSION_CODE) {
@@ -145,6 +143,7 @@ class MainActivity : ComponentActivity() {
 
     fun typing(num: View){
         val button = num as Button
+        Log.d("DEBUG", "Testing")
         equation.append(button.text)
         updateDisplay()
     }
@@ -156,6 +155,11 @@ class MainActivity : ComponentActivity() {
 
     fun divide(sign: View){
         equation.append("/")
+        updateDisplay()
+    }
+
+    fun add(sign: View){
+        equation.append("+")
         updateDisplay()
     }
 
@@ -179,7 +183,24 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun arithmeticStuff() {
-        print("Hallo!!")
+        val arithmetic = equation.toString().replace("x", "*")
+
+        try {
+            val result = eval(equation.toString()) // Write an `eval` function to evaluate
+            equation.clear().append(result)
+            updateDisplay()
+        } catch (e: Exception) {
+            equation.clear().append("Error")
+            updateDisplay()
+        }
+    }
+
+    fun eval(expression: String): Double {
+        return try {
+            ExpressionBuilder(expression).build().evaluate()
+        } catch (e: Exception) {
+            Double.NaN // Return NaN for invalid expressions
+        }
     }
 
     fun bracket(sign: View){
@@ -233,7 +254,22 @@ class MainActivity : ComponentActivity() {
 
     fun updateDisplayTrick(){
         var displayText = findViewById<TextView>(R.id.textView1)
-        displayText.text = realTrick.toString()
+        val element = StringBuilder()
+        element.append(realTrick)
+        element.delete(0, 3)
+
+        var i = 0
+
+        while (i < element.length){
+            if (element[i] == '-'){
+                Log.d("DEBUG", "The if statement works")
+                element.delete(i, i+1)
+            }
+            else{
+                i++
+            }
+        }
+        displayText.text = element.toString()
     }
 
 }

@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.exp4j)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
