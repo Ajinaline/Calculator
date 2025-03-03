@@ -256,7 +256,7 @@ class MainActivity : ComponentActivity() {
         var displayText = findViewById<TextView>(R.id.textView1)
         val element = StringBuilder()
         element.append(realTrick)
-        element.delete(0, 3)
+        element.toString().replace("+1", "")
 
         var i = 0
 
@@ -270,6 +270,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         displayText.text = element.toString()
+        realTrick=""
     }
 
 }
